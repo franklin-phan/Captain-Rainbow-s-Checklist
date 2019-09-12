@@ -38,6 +38,15 @@ def select(function_code):
         # Remember that item_index must actually exist or our program will crash.
         print(read(item_index)) #new addition
         return True #New Addition
+    #Update item
+    elif function_code == "U":
+        item_index = user_input("Index to change: ")
+        replace_item = user_input("Item to replace with: ")
+        update(int(item_index), replace_item)
+   
+    elif function_code == "D":
+        item_index = user_input("Index Number?: ")
+        destroy(int(item_index))
 
     elif function_code == "P":
             list_all_items()
@@ -79,5 +88,5 @@ test()
 running = True
 while running:
     selection = user_input(
-        "Press C to add to list, R to Read from list, P to display list, and Q to quit: ")
+        "Press C to add to list, R to Read from list, U to Update item in list, D to destroy item in list, P to display list, and Q to quit: ")
     running = select(selection)
