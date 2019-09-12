@@ -18,27 +18,30 @@ def destroy(index):
 def list_all_items():
     index = 0
     for list_item in checklist:
-        print("{} {}".format(int(index), list_item))
+        print("{} {}".format(index, list_item))
         index += 1
 
 def mark_completed(index):
         checklist[int(index)] = "√" + checklist[int(index)]
 
 def select(function_code):
-
+    # Create item
     if function_code == "C":
         input_item = user_input("Input item:")
         create(input_item)
+        return True #new addition
 
     # Read item
     elif function_code == "R":
         item_index = user_input("Index Number?")
 
         # Remember that item_index must actually exist or our program will crash.
-        read(item_index)
+        print(read(item_index)) #new addition
+        return True #New Addition
 
     elif function_code == "P":
             list_all_items()
+            return True #new addition
         # Print all items here
 
     elif function_code == "Q":
@@ -70,14 +73,6 @@ def test():
 
     list_all_items()
 
-    select("C")
-
-    select("R")
-
-    list_all_items()
-
-    user_value = user_input("Please Enter a value:")
-    print(user_value)
 
 test()
 
